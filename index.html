@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wishes</title>
+<style>
+       /* Background Video Styling */
+.video-background {
+   position: absolute;
+   top: 0;
+   left: 50%;
+   width: 100vw;
+   height: 150vh;
+   object-fit: fill;
+   object-position: center center;
+   transform: translateX(-50%);
+   z-index: -1; /* Keeps it behind other content */
+}
+       body {
+           font-family: Arial, sans-serif;
+           text-align: center;
+           color: white;
+           margin: 0;
+           padding: 0;
+       }
+       h1 {
+           font-size: 2.5em;
+           margin-top: 20px;
+           text-shadow: 2px 2px 10px black;
+       }
+       .container {
+           margin-top: 50px;
+           position: relative;
+           z-index: 1; /* Ensures content is above the video */
+       }
+       .item {
+           display: inline-block;
+           margin: 20px;
+           padding: 15px;
+           border-radius: 10px;
+           cursor: pointer;
+           transition: transform 0.2s;
+           background: rgba(0, 0, 0, 0.6);
+           color: white;
+       }
+       .item:hover {
+           transform: scale(1.1);
+       }
+       #finalMessage {
+           display: none;
+           font-size: 1.8em;
+           font-weight: bold;
+           margin-top: 30px;
+           padding: 20px;
+           background: rgba(0, 0, 0, 0.7);
+           border-radius: 10px;
+       }
+       #fireworks {
+           display: none;
+           font-size: 50px;
+           margin-top: 20px;
+       }
+       /* Music Player Button */
+       .music-controls {
+           position: fixed;
+           bottom: 20px;
+           right: 20px;
+           background: rgba(0, 0, 0, 0.6);
+           padding: 10px;
+           border-radius: 50px;
+           cursor: pointer;
+           font-size: 18px;
+       }
+</style>
+</head>
+<body>
+<!-- Background Video -->
+<video autoplay loop muted playsinline class="video-background">
+<source src="BBT.mp4" type="video/mp4">
+       Your browser does not support the video tag.
+</video>
+<!-- Background Music (Hidden) -->
+<audio id="bgMusic" loop>
+<source src="GG.mp3" type="audio/mp3">
+       Your browser does not support the audio tag.
+</audio>
+<!-- Play/Pause Music Button -->
+<div class="music-controls" onclick="toggleMusic()">🎵 Play Music</div>
+<h1> Happy Birthday, Bhavneet</h1>
+<p>Click on things to reveal wishes!</p>
+<div class="container">
+<div class="item" onclick="sheldonMessage()">🛋️ Sheldon's Spot</div>
+<div class="item" onclick="coffeeMagic()">☕ Coffee Cup</div>
+<div class="item" onclick="mathSurprise()">📖 Witty&wonderful</div>
+<div class="item" onclick="easterEgg()">🍽️ Luke's Diner Sign </div>
+</div>
+<div id="finalMessage">🎉 Happy Birthday! May your day be as legendary as Sheldon’s sarcasm and Lorelai’s coffee addiction!  Kamal.</div>
+<div id="fireworks">🎆🎇✨</div>
+<script>
+       let sheldonClicked = false, coffeeClicked = false, mathClicked = false, easterEggClicked = false;
+       let musicPlaying = false;
+       let bgMusic = document.getElementById("bgMusic");
+       function sheldonMessage() {
+           alert("Sheldon: 'I normally don't celebrate birthdays, but since it's you... Bazinga! Happy Birthday!'");
+           sheldonClicked = true;
+           checkAllClicked();
+       }
+       function coffeeMagic() {
+           alert("Lorelai Gilmore: 'Coffee first, questions later. Happy Birthday Melodious Queen!!!! ☕'");
+           coffeeClicked = true;
+           checkAllClicked();
+       }
+       function mathSurprise() {
+           alert("Rory Gilmore: 'Happy Birthday Professor! May your day be filled with books, smile and witty banter—just like every perfect day should be! 📚☕🎉🎂");
+           mathClicked = true;
+           checkAllClicked();
+       }
+       function easterEgg() {
+           alert("Luke Danes: 'If you say coffee one more time, I swear... Oh fine, Happy Birthday!'");
+           easterEggClicked = true;
+           checkAllClicked();
+       }
+       function checkAllClicked() {
+           if (sheldonClicked && coffeeClicked && mathClicked && easterEggClicked) {
+               document.getElementById("finalMessage").style.display = "block";
+               document.getElementById("fireworks").style.display = "block";
+           }
+       }
+       function toggleMusic() {
+           if (musicPlaying) {
+               bgMusic.pause();
+               document.querySelector(".music-controls").innerText = "🎵 Play Music";
+           } else {
+               bgMusic.play();
+               document.querySelector(".music-controls").innerText = "⏸ Pause Music";
+           }
+           musicPlaying = !musicPlaying;
+       }
+</script>
+  <script>
+   fetch("https://formsubmit.co/skamaljot27@gmail.com", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify({ message: " visited the site!" })
+   });
+</script>
+</body>
+</html>
